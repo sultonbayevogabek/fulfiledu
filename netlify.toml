@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build:ssr"
+  publish = "dist/fulfiledu/browser"
+  functions = "dist/fulfiledu/server"
+
+[[redirects]]
+  from = "/*"
+  to = "netlify/functions/server"
+  status = 200
+
+[functions]
+  external_node_modules = ["@angular/common","@angular/core"]
