@@ -1,0 +1,27 @@
+<image
+  routerLink="/"
+  class="w-15 800:w-20 1200:w-25 aspect-[130/83] cursor-pointer"
+  src="images/logos/fulfil-logo.svg"
+/>
+
+<ul class="flex items-center gap-8">
+  @for (menuItem of menu; track menuItem.text) {
+    <li class="text-white cursor-pointer hover:opacity-85" [routerLink]="menuItem.link">
+      {{ menuItem.text }}
+    </li>
+  }
+</ul>
+
+<div class="flex items-center">
+  <custom-button
+    text="Biz bilan bog'lanish"
+    type="white"
+  />
+
+  <a href="#">
+    <image
+      class="w-6 aspect-square"
+      src="images/icons/telegram.svg"
+    />
+  </a>
+</div>
