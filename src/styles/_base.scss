@@ -1,0 +1,16 @@
+body {
+  font-family: "Poppins", sans-serif;
+  @apply text-[14px] 1200:text-[16px]
+}
+
+* {
+  @apply shrink-0;
+}
+
+.font-bebas {
+  font-family: "Bebas Neue", serif;
+}
+
+.wrapper {
+  @apply 800:max-w-[90%] 1900:max-w-[1744px] mx-auto px-3;
+}
