@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ImageComponent } from '../../shared/components/image/image.component';
+import { ImageComponent } from '@shared/components/image/image.component';
 import { RouterLink } from '@angular/router';
-import { CustomButtonComponent } from '../../shared/components/custom-button/custom-button.component';
+import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 
 @Component({
   selector: 'site-header',
