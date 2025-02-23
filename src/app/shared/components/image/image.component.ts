@@ -8,7 +8,7 @@ import { NgOptimizedImage } from '@angular/common';
   ],
   templateUrl: './image.component.html',
   host: {
-    'class': 'relative'
+    'class': 'relative block'
   }
 })
 

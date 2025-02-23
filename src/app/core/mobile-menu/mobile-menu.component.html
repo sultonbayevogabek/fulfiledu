@@ -1,0 +1,19 @@
+<nav class="flex flex-col gap-8 w-max h-screen p-4 800:p-6 bg-white">
+  <image
+    class="w-18 aspect-[130/83]"
+    src="images/logos/green-logo.svg"
+  />
+
+  <ul class="flex flex-col flex-grow shrink-[1]! overflow-auto gap-4">
+    @for (menuItem of menu; track menuItem.text) {
+      <li class="cursor-pointer leading-[1]">
+        {{ menuItem.text }}
+      </li>
+    }
+  </ul>
+
+  <custom-button
+    text="Biz bilan bog'lanish"
+    type="green"
+  />
+</nav>
