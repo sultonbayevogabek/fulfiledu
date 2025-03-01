@@ -9,13 +9,10 @@ import { HeaderComponent } from '../header/header.component';
   standalone: true,
   templateUrl: './intro.component.html',
   host: {
-    'class': 'block bg-black bg-[url(/images/intro/background.svg)] bg-center bg-cover'
+    'class': 'block bg-black bg-[url(/images/intro/background.jpg)] bg-center bg-cover'
   }
 })
 
 export class IntroComponent {
-  type = input<'home' | 'pages'>('pages');
-
-  @HostBinding('class.h-screen')
-  isTypeHome = computed(() => this.type() === 'home');
+  heading = input<string>('Maqsadimiz, ilm orqali insonlar hayotini o\'zgartirish!');
 }
