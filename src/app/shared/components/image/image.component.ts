@@ -9,7 +9,8 @@ import { NgOptimizedImage } from '@angular/common';
   templateUrl: './image.component.html',
   host: {
     'class': 'relative block'
-  }
+  },
+  standalone: true
 })
 
 export class ImageComponent {

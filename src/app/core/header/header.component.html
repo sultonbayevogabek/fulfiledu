@@ -1,37 +1,47 @@
-<div class="flex items-center gap-4">
-  <icon class="cursor-pointer 1100:hidden" name="hamburger" size="20"/>
-
-  <image
-    routerLink="/"
-    class="w-15 800:w-20 1200:w-25 aspect-[130/83] cursor-pointer"
-    src="images/logos/white-logo.svg"
-  />
-</div>
-
-<ul class="hidden 1100:flex items-center gap-8">
-  @for (menuItem of menu; track menuItem.text) {
-    <li class="text-white cursor-pointer hover:opacity-85" [routerLink]="menuItem.link">
-      {{ menuItem.text }}
-    </li>
-  }
-</ul>
-
-<div class="flex items-center gap-3 800:gap-5 1200:gap-8">
-  <custom-button
-    class="hidden 1100:block"
-    text="Biz bilan bog'lanish"
-    type="white"
-  />
-
+<div class="flex items-center justify-between py-2.5 800:py-4 1200:py-5">
   <div class="flex items-center gap-4">
-    <a href="#">
-      <icon size="24" name="telegram"/>
-    </a>
+    <icon
+      class="cursor-pointer 1100:hidden"
+      name="hamburger"
+      size="20"
+      (click)="openMenu()"
+    />
 
-    <a href="#">
-      <icon size="24" name="instagram"/>
-    </a>
+    <image
+      routerLink="/"
+      class="w-15 800:w-20 1200:w-25 aspect-[130/83] cursor-pointer"
+      src="images/logos/white-logo.svg"
+    />
+  </div>
+
+  <ul class="hidden 1100:flex items-center gap-8">
+    @for (menuItem of menu; track menuItem.text) {
+      <li class="text-white cursor-pointer hover:opacity-85" [routerLink]="menuItem.link">
+        {{ menuItem.text }}
+      </li>
+    }
+  </ul>
+
+  <div class="flex items-center gap-3 800:gap-5 1200:gap-8">
+    <custom-button
+      class="hidden 1100:block"
+      text="Biz bilan bog'lanish"
+      type="white"
+    />
+
+    <div class="flex items-center gap-4">
+      <a href="#">
+        <icon size="24" name="telegram"/>
+      </a>
+
+      <a href="#">
+        <icon size="24" name="instagram"/>
+      </a>
+    </div>
   </div>
 </div>
 
-<!--<mobile-menu />-->
+<mobile-menu
+  [(isOpen)]="isMenuOpen"
+/>
+

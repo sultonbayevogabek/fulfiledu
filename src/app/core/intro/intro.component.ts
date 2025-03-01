@@ -6,6 +6,7 @@ import { HeaderComponent } from '../header/header.component';
   imports: [
     HeaderComponent
   ],
+  standalone: true,
   templateUrl: './intro.component.html',
   host: {
     'class': 'block bg-black bg-[url(/images/intro/background.svg)] bg-center bg-cover'

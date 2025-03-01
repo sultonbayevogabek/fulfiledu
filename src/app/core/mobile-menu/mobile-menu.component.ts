@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { ImageComponent } from '@shared/components/image/image.component';
 import menu from '@shared/constants/menu';
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
@@ -10,11 +10,14 @@ import { CustomButtonComponent } from '@shared/components/custom-button/custom-b
     CustomButtonComponent
   ],
   templateUrl: './mobile-menu.component.html',
-  host: {
-    class: 'fixed inset-0 h-screen bg-[#0000004d]'
-  }
+  standalone: true
 })
 
 export class MobileMenuComponent {
   menu = menu;
+  isOpen = model<boolean>(false);
+
+  closeMenu() {
+    this.isOpen.update(() => false);
+  }
 }

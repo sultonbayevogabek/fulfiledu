@@ -7,10 +7,12 @@ import { NgClass } from '@angular/common';
     NgClass
   ],
   templateUrl: './custom-button.component.html',
-  styleUrl: './custom-button.component.scss'
+  styleUrl: './custom-button.component.scss',
+  standalone: true
 })
 
 export class CustomButtonComponent {
+  classes = input('');
   type = input<'white' | 'green'>('green');
   text = input.required<string>();
 }

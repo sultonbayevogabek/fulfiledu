@@ -6,7 +6,8 @@ import { IntroComponent } from '../../core/intro/intro.component';
   imports: [
     IntroComponent
   ],
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  standalone: true
 })
 
 export class HomeComponent {

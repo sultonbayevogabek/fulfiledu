@@ -6,7 +6,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'block'
-  }
+  },
+  standalone: true
 })
 
 export class IconComponent {
