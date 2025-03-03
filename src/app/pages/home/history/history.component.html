@@ -6,23 +6,23 @@
         description="Hozirgi faoliyatimiz onlayn maktablar qurish, onlayn kurslarni masshtablashtirish va aktiv 1500+ o'quvchilar"
       />
 
-      <div class="1600:hidden grid grid-cols-4 1600:grid-cols-2 gap-[16px] 800:gap-[20px] 1200:gap-[24px] pt-5">
+      <div class="1600:hidden grid grid-cols-2 500:grid-cols-3 800:grid-cols-4 gap-[16px] 800:gap-[20px] 1200:gap-[24px] pt-5">
         <div class="self-end aspect-[460/695] rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px] overflow-hidden">
           <image class="w-full h-full" src="images/history/image-1.jpg"/>
         </div>
         <div class="aspect-[460/695] rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px] overflow-hidden">
           <image class="w-full h-full" src="images/history/image-2.jpg"/>
         </div>
-        <div class="self-end aspect-[460/695] rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px] overflow-hidden">
+        <div class="hidden 500:block self-end aspect-[460/695] rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px] overflow-hidden">
           <image class="w-full h-full" src="images/history/image-1.jpg"/>
         </div>
-        <div class="aspect-[460/695] rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px] overflow-hidden">
+        <div class="hidden 800:block aspect-[460/695] rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px] overflow-hidden">
           <image class="w-full h-full" src="images/history/image-2.jpg"/>
         </div>
       </div>
 
-      <div class="flex flex-col gap-6 pt-10">
-        <h3 class="text-[20px] 800:text-[24px] 1200:text-[28px] font-bebas leading-[1]">Rivojlanish tarixi</h3>
+      <div class="flex flex-col gap-6 pt-5 800:pt-8 1200:pt-10">
+        <h3 class="text-[22px] 800:text-[26px] 1200:text-[28px] font-bebas leading-[1]">Rivojlanish tarixi</h3>
         <div class="grid grid-cols-6 gap-x-4">
           <ng-container *ngTemplateOutlet="historyItems" />
         </div>
@@ -41,17 +41,17 @@
 
 <ng-template #historyItems>
   @for (item of history; track item.year; let last = $last) {
-    <div class="col-span-6 800:col-span-3 1600:col-span-6 flex items-start gap-5">
+    <div class="col-span-6 800:col-span-3 1600:col-span-6 flex items-start gap-3 800:gap-4 1200:gap-5">
       <div class="flex flex-col h-full pb-1">
         <div class="text-[20px] 800:text-[24px] 1200:text-[28px] text-[#8D929F] font-bebas leading-[1.1]">
           {{ item.year }}
         </div>
         @if (!last) {
-          <div class="hidden 1600:block w-1/2 flex-grow border-r-2 border-r-[#DCDFE7]"></div>
+          <div class="block 800:hidden 1600:block w-1/2 flex-grow border-r-2 border-r-[#DCDFE7]"></div>
         }
       </div>
 
-      <div class="flex flex-col gap-3 leading-[1.2]">
+      <div class="flex flex-col gap-2 1200:gap-3 leading-[1.2]">
         <div class="text-[16px] 800:text-[18px] 1200:text-[20px]">
           {{ item.title }}
         </div>
