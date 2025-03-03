@@ -10,3 +10,11 @@ body {
 .wrapper {
   @apply 800:max-w-[90%] 1900:max-w-[1744px] mx-auto px-3;
 }
+
+.common-gap {
+  @apply gap-[12px] 800:gap-[18px] 1200:gap-[24px];
+}
+
+.common-radius {
+  @apply rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px];
+}
