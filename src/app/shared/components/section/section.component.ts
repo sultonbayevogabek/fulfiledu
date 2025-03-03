@@ -6,7 +6,8 @@ import { Component, HostBinding, input } from '@angular/core';
   templateUrl: './section.component.html',
   host: {
     class: 'block py-[20px]  800:py-[30px] 1200:py-[50px]'
-  }
+  },
+  standalone: true
 })
 
 export class SectionComponent {

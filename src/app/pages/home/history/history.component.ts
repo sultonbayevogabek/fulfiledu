@@ -2,14 +2,17 @@ import { Component } from '@angular/core';
 import { SectionComponent } from '@shared/components/section/section.component';
 import { SectionHeadingComponent } from '@shared/components/section-heading/section-heading.component';
 import { ImageComponent } from '@shared/components/image/image.component';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'history',
   imports: [
     SectionComponent,
     SectionHeadingComponent,
-    ImageComponent
+    ImageComponent,
+    NgTemplateOutlet
   ],
+  standalone: true,
   templateUrl: './history.component.html',
 })
 
