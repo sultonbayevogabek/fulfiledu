@@ -1,4 +1,4 @@
-<div class="flex items-center justify-between py-2.5 800:py-4 1200:py-5">
+<div class="flex items-center justify-between py-2.5 800:py-4 1200:py-5 relative">
   <div class="flex items-center gap-4">
     <icon
       class="cursor-pointer 1100:hidden"
@@ -14,7 +14,7 @@
     />
   </div>
 
-  <ul class="hidden 1100:flex items-center gap-8">
+  <ul class="hidden 1100:flex items-center gap-8 flex-grow justify-center">
     @for (menuItem of menu; track menuItem.text) {
       <li class="text-white cursor-pointer hover:opacity-85" [routerLink]="menuItem.link">
         {{ menuItem.text }}

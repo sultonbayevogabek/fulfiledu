@@ -6,7 +6,7 @@
 
     <div class="grid grid-cols-1 900:grid-cols-2 1500:grid-cols-3 common-gap">
       @for (item of projects; track item.title; let i = $index) {
-        <div class="relative flex items-start gap-2 800:gap-3 1200:gap-4 p-3 800:p-4 1200:p-5 rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px] border border-[#DCDFE7]">
+        <div class="relative flex flex-col 900:flex-row items-start gap-2 800:gap-3 1200:gap-4 p-3 800:p-4 1200:p-5 rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px] border border-[#DCDFE7]">
           <image
             class="w-10 800:w-11 1200:w-13 aspect-square flex-shrink-0"
             [src]="'images/projects/' + (i + 1) + '.svg'"

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SectionComponent } from '@shared/components/section/section.component';
 import { SectionHeadingComponent } from '@shared/components/section-heading/section-heading.component';
 import { ImageComponent } from '@shared/components/image/image.component';
-import { NgClass, NgOptimizedImage } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'projects',
@@ -10,7 +10,6 @@ import { NgClass, NgOptimizedImage } from '@angular/common';
     SectionComponent,
     SectionHeadingComponent,
     ImageComponent,
-    NgOptimizedImage,
     NgClass
   ],
   templateUrl: './projects.component.html',
