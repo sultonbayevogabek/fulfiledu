@@ -26,7 +26,7 @@
 
 <!--Section tabs-->
 <ng-template #tabsTemplate>
-  <div class="flex items-center gap-3 overflow-auto">
+  <div class="flex items-center gap-3 max-w-full overflow-auto">
     @for (department of departments(); track department) {
       <custom-button
         [text]="department"
@@ -55,14 +55,14 @@
       <image class="w-full h-full" [src]="member.image"/>
     </div>
 
-    <div class="flex flex-col gap-2 mb-4 500:mb-0 pb-3 500:pb-0 border-b border-b-[#DCDFE7] 500:border-b-0">
+    <div class="flex flex-col gap-2 pb-3 500:pb-0 border-b border-b-[#DCDFE7] 500:border-b-0">
       <div class="text-[#474B56] font-thin">
         {{ member.team_join_date }}
       </div>
       <h3 class="text-[22px] 800:text-[26px] 1200:text-[28px] font-bebas leading-[1]">
         {{ member.name }}
       </h3>
-      <p class="text-[#474B56] font-thin">
+      <p class="text-[#474B56] font-thin leading-[1.3]">
         {{ member.description }}
         <br>
         {{ member.result }}
