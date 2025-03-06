@@ -1,0 +1,29 @@
+<section-container>
+  <div class="wrapper flex flex-col common-gap">
+    <ng-container
+      *ngTemplateOutlet="headerTemplate"
+    />
+
+    <ng-container
+      *ngTemplateOutlet="galleryTemplate"
+    />
+  </div>
+</section-container>
+
+<ng-template #headerTemplate>
+  <div class="flex items-center justify-between gap-4">
+    <section-heading
+      heading="Biz bilan yaqindan tanishing"
+    />
+
+    <custom-button
+      text="Barchasini ko'rish"
+    />
+  </div>
+</ng-template>
+
+<ng-template #galleryTemplate>
+  <div class="grid grid-cols-1 500:grid-cols-2 900:grid-cols-3 1400:grid-cols-4 common-gap">
+
+  </div>
+</ng-template>
