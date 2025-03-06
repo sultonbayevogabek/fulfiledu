@@ -36,6 +36,7 @@ export class TeamComponent implements OnInit {
   async getTeamMembers() {
     const members = await this.sheetsService.getData<IMember>('team');
     this.members.set(members);
+
     this.getDepartments();
   }
 
@@ -43,7 +44,7 @@ export class TeamComponent implements OnInit {
     const departments = new Set();
     this.members().forEach(member => {
       departments.add(member.department);
-    })
+    });
     this.departments.set(Array.from(departments) as string[]);
     this.selectedDepartment.set(this.departments()[0]);
   }

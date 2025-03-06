@@ -13,7 +13,7 @@
 
 <!--Section header-->
 <ng-template #headerTemplate>
-  <div class="flex items-center justify-between">
+  <div class="flex flex-col 1300:flex-row items-start 1300:items-center justify-between gap-2">
     <section-heading
       heading="Bizning ahil jamoamiz!"
     />
@@ -26,7 +26,7 @@
 
 <!--Section tabs-->
 <ng-template #tabsTemplate>
-  <div class="flex items-center gap-3">
+  <div class="flex items-center gap-3 overflow-auto">
     @for (department of departments(); track department) {
       <custom-button
         [text]="department"
@@ -39,7 +39,7 @@
 
 <!--Members-->
 <ng-template #membersTemplate>
-  <div class="grid grid-cols-4 common-gap">
+  <div class="grid grid-cols-1 500:grid-cols-2 900:grid-cols-3 1400:grid-cols-4 common-gap">
     @for (member of members()| memberFilter: selectedDepartment(); track member.name) {
       <ng-container
         *ngTemplateOutlet="memberCard; context: { $implicit: member }"
@@ -50,9 +50,23 @@
 
 <!--Member card-->
 <ng-template #memberCard let-member>
-  <div class="flex flex-col">
-    <div class="aspect-[7/8] common-radius overflow-hidden">
+  <div class="flex flex-col gap-3">
+    <div class="aspect-[7/8] common-radius overflow-hidden bg-gray-50">
       <image class="w-full h-full" [src]="member.image"/>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="text-[#474B56] font-thin">
+        {{ member.team_join_date }}
+      </div>
+      <h3 class="text-[22px] 800:text-[26px] 1200:text-[28px] font-bebas leading-[1]">
+        {{ member.name }}
+      </h3>
+      <p class="text-[#474B56] font-thin">
+        {{ member.description }}
+        <br>
+        {{ member.result }}
+      </p>
     </div>
   </div>
 </ng-template>

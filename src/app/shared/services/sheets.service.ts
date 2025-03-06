@@ -40,12 +40,7 @@ export class SheetsService {
       let row = this.csvSplit(csvRows[i]);
       for (let j = 0, max = row.length; j < max; j++) {
         if (!propertyNames[j]) continue;
-
-        if (propertyNames[j] === 'image') {
-          object[propertyNames[j]] = this.convertDriveLink(row[j]);
-        } else {
-          object[propertyNames[j]] = row[j];
-        }
+        object[propertyNames[j]] = row[j];
       }
       result.push(object);
     }
