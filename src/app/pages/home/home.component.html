@@ -1,9 +1,16 @@
 <intro />
 <history />
 <projects />
-<team />
 
 @defer (on viewport) {
+  <team />
+} @placeholder {
+  <loader />
+}
+
+@defer (on viewport) {
+  <blog-and-news
+    page="home"/>
 } @placeholder {
   <loader />
 }
