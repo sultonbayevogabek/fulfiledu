@@ -14,8 +14,7 @@ import { BlogsService } from './blogs.service';
     SectionHeadingComponent,
     CustomButtonComponent,
     NgTemplateOutlet,
-    ImageComponent,
-    MemberFilterPipe
+    ImageComponent
   ],
   templateUrl: './blog-and-news.component.html',
   standalone: true
@@ -32,6 +31,6 @@ export class BlogAndNewsComponent implements OnInit {
   }
 
   async getBlogsList() {
-
+    await this.blogsService.getBlogsList();
   }
 }

@@ -16,6 +16,8 @@ export class SheetsService {
       this.http.get(this.sheetUrl(sheetName), { responseType: 'text' }),
     )
 
+    console.log(response);
+
     return this.csvToArray<T>(response);
   }
 
