@@ -1,0 +1,58 @@
+<section-container
+  bgColor="gray"
+>
+  <div class="wrapper flex flex-col common-gap">
+    <ng-container
+      *ngTemplateOutlet="headerTemplate"
+    />
+    <ng-container
+      *ngTemplateOutlet="membersTemplate"
+    />
+  </div>
+</section-container>
+
+<!--Section header-->
+<ng-template #headerTemplate>
+  <div class="flex items-center justify-between">
+    <section-heading
+      heading="Bizning ahil jamoamiz!"
+    />
+
+    <ng-container
+      *ngTemplateOutlet="tabsTemplate"
+    />
+  </div>
+</ng-template>
+
+<!--Section tabs-->
+<ng-template #tabsTemplate>
+  <div class="flex items-center gap-3">
+    @for (department of departments(); track department) {
+      <custom-button
+        [text]="department"
+        [type]="selectedDepartment() === department ? 'green' : 'white'"
+        (click)="selectDepartment(department)"
+      />
+    }
+  </div>
+</ng-template>
+
+<!--Members-->
+<ng-template #membersTemplate>
+  <div class="grid grid-cols-4 common-gap">
+    @for (member of members()| memberFilter: selectedDepartment(); track member.name) {
+      <ng-container
+        *ngTemplateOutlet="memberCard; context: { $implicit: member }"
+      />
+    }
+  </div>
+</ng-template>
+
+<!--Member card-->
+<ng-template #memberCard let-member>
+  <div class="flex flex-col">
+    <div class="aspect-[7/8] common-radius overflow-hidden">
+      <image class="w-full h-full" [src]="member.image"/>
+    </div>
+  </div>
+</ng-template>
