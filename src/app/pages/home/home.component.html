@@ -10,7 +10,14 @@
 
 @defer (on viewport) {
   <blog-and-news
-    page="home"/>
+    page="home"
+  />
+} @placeholder {
+  <loader />
+}
+
+@defer (on viewport) {
+  <meet-us />
 } @placeholder {
   <loader />
 }

@@ -4,9 +4,16 @@
       *ngTemplateOutlet="headerTemplate"
     />
 
-    <ng-container
-      *ngTemplateOutlet="blogsTemplate"
-    />
+    @if (blogs().length) {
+      <ng-container
+        *ngTemplateOutlet="blogsTemplate"
+      />
+    } @else {
+      <skeleton
+        type="blog"
+        [count]="4"
+      />
+    }
   </div>
 </section-container>
 
@@ -26,7 +33,7 @@
 
 <ng-template #blogsTemplate>
   <div class="grid grid-cols-1 500:grid-cols-2 900:grid-cols-3 1400:grid-cols-4 common-gap">
-    @for (blog of blogs(); track blog.text) {
+    @for (blog of blogs(); let i = $index; track i) {
       <ng-container
         *ngTemplateOutlet="blogCard; context: { $implicit: blog }"
       />

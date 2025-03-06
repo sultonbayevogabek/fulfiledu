@@ -6,6 +6,8 @@ import { NgTemplateOutlet } from '@angular/common';
 import { ImageComponent } from '@shared/components/image/image.component';
 import { MemberFilterPipe } from '../home/team/member-filter.pipe';
 import { BlogsService } from './blogs.service';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
+import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 
 @Component({
   selector: 'blog-and-news',
@@ -14,7 +16,9 @@ import { BlogsService } from './blogs.service';
     SectionHeadingComponent,
     CustomButtonComponent,
     NgTemplateOutlet,
-    ImageComponent
+    ImageComponent,
+    LoaderComponent,
+    SkeletonComponent
   ],
   templateUrl: './blog-and-news.component.html',
   standalone: true

@@ -5,9 +5,16 @@
     <ng-container
       *ngTemplateOutlet="headerTemplate"
     />
-    <ng-container
-      *ngTemplateOutlet="membersTemplate"
-    />
+    @if (members().length) {
+      <ng-container
+        *ngTemplateOutlet="membersTemplate"
+      />
+    } @else {
+      <skeleton
+        type="members"
+        [count]="4"
+      />
+    }
   </div>
 </section-container>
 
@@ -17,7 +24,6 @@
     <section-heading
       heading="Bizning ahil jamoamiz!"
     />
-
     <ng-container
       *ngTemplateOutlet="tabsTemplate"
     />

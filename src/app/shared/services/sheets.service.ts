@@ -16,7 +16,7 @@ export class SheetsService {
       this.http.get(this.sheetUrl(sheetName), { responseType: 'text' }),
     )
 
-    console.log(response);
+    console.log('Response: ', response);
 
     return this.csvToArray<T>(response);
   }
@@ -35,6 +35,7 @@ export class SheetsService {
 
   csvToArray<T>(csv: string): T[] {
     const csvRows = csv.split('\n');
+    console.log(csvRows);
     const propertyNames = this.csvSplit(csvRows[0]);
     let result: T[] = [];
     for (let i = 1, max = csvRows.length; i < max; i++) {

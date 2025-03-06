@@ -7,6 +7,7 @@ import { CustomButtonComponent } from '@shared/components/custom-button/custom-b
 import { NgTemplateOutlet } from '@angular/common';
 import { MemberFilterPipe } from './member-filter.pipe';
 import { ImageComponent } from '@shared/components/image/image.component';
+import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 
 @Component({
   selector: 'team',
@@ -16,7 +17,8 @@ import { ImageComponent } from '@shared/components/image/image.component';
     CustomButtonComponent,
     NgTemplateOutlet,
     MemberFilterPipe,
-    ImageComponent
+    ImageComponent,
+    SkeletonComponent
   ],
   templateUrl: './team.component.html',
   standalone: true
