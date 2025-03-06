@@ -5,16 +5,10 @@
     <ng-container
       *ngTemplateOutlet="headerTemplate"
     />
-    @if (members().length) {
-      <ng-container
-        *ngTemplateOutlet="membersTemplate"
-      />
-    } @else {
-      <skeleton
-        type="members"
-        [count]="4"
-      />
-    }
+
+    <ng-container
+      *ngTemplateOutlet="mainTemplate"
+    />
   </div>
 </section-container>
 
@@ -41,6 +35,19 @@
       />
     }
   </div>
+</ng-template>
+
+<ng-template #mainTemplate>
+  @if (members().length) {
+    <ng-container
+      *ngTemplateOutlet="membersTemplate"
+    />
+  } @else {
+    <skeleton
+      type="members"
+      [count]="4"
+    />
+  }
 </ng-template>
 
 <!--Members-->
