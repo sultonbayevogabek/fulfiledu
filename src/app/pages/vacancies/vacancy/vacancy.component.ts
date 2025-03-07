@@ -8,6 +8,7 @@ import { VacanciesService } from '../vacancies.service';
 import { ImageComponent } from '@shared/components/image/image.component';
 import { VacancyCardComponent } from '../vacancy-card/vacancy-card.component';
 import { LoaderComponent } from '@shared/components/loader/loader.component';
+import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 
 @Component({
   selector: 'vacancy',
@@ -18,7 +19,8 @@ import { LoaderComponent } from '@shared/components/loader/loader.component';
     RouterLink,
     ImageComponent,
     VacancyCardComponent,
-    LoaderComponent
+    LoaderComponent,
+    CustomButtonComponent
   ],
   templateUrl: './vacancy.component.html',
   host: {
@@ -35,29 +37,27 @@ export class VacancyComponent implements OnInit {
   private vacanciesService = inject(VacanciesService);
 
   async ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-
-    })
+    this.activatedRoute.params.subscribe(async params => {
+      let vacancyIndex = 0;
+      if (params && params['vacancyId']) {
+        vacancyIndex = +params['vacancyId'].split('-').reverse()[0] || 0;
+      }
+      await this.getVacancy(vacancyIndex);
+    });
   }
 
   back() {
     this.location.back();
   }
 
-  async getVacancy() {
-    const snapshot = this.activatedRoute.snapshot;
-    const params = snapshot.params;
-    let vacancyIndex = 0;
-    if (params && params['vacancyId']) {
-      vacancyIndex = +params['vacancyId'].split('-').reverse()[0] || 0;
-    }
-    const vacancy = await this.vacanciesService.getVacancy(vacancyIndex);
+  async getVacancy(index: number) {
+    const vacancy = await this.vacanciesService.getVacancy(index);
     this.vacancy.set({
       ...vacancy,
       offersList: vacancy.offers.split('||'),
-      requirementsList: vacancy.requirements.split('||'),
+      requirementsList: vacancy.requirements.split('||')
     });
-    this.getAnotherVacancies(vacancyIndex);
+    this.getAnotherVacancies(index);
   }
 
   getAnotherVacancies(index: number) {
