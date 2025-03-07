@@ -13,16 +13,14 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/blogs/blogs.routes').then(r => r.blogsRoutes)
   },
   {
+    path: 'vacancies',
+    loadChildren: () => import('./pages/vacancies/vacancies.routes').then(r => r.vacanciesRoutes)
+  },
+  {
     path: 'media',
     loadComponent: () => {
       return import('./pages/media/media.component').then(c => c.MediaComponent);
     },
     data: { title: 'Biz bilan yaqindan tanishing' }
-  }, {
-    path: 'vacancies',
-    loadComponent: () => {
-      return import('./pages/vacancies/vacancies.component').then(c => c.VacanciesComponent);
-    },
-    data: { title: 'Vakansiyalar' }
-  }
+  },
 ];

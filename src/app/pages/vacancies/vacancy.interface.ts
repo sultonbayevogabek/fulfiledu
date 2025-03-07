@@ -1,6 +1,9 @@
 export interface IVacancy {
-  type: string;
   title: string;
-  image: string;
-  text: string;
+  salary: string;
+  description: string;
+  requirements: string;
+  offers: string;
+  requirementsList: string[];
+  offersList: string[];
 }

@@ -15,4 +15,16 @@ export class VacanciesService {
     const vacancies = await this.sheetsService.getData<IVacancy>('vacancies');
     this.vacancies.set(vacancies);
   }
+
+  async getVacancy(index: number) {
+    if (!this.vacancies().length) {
+      await this.getVacanciesList();
+    }
+
+    if (index > this.vacancies().length - 1) {
+      return this.vacancies()[0];
+    }
+
+    return this.vacancies()[index];
+  }
 }

@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { ImageComponent } from '@shared/components/image/image.component';
 
 @Component({
   selector: 'skeleton',
