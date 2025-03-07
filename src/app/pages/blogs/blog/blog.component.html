@@ -1,5 +1,5 @@
 <section-container class="flex-grow" bgColor="gray">
-  <div class="wrapper grid grid-cols-5 items-start common-gap">
+  <div class="wrapper grid grid-cols-5 items-start gap-5">
     <ng-container
       *ngTemplateOutlet="navigationBack"
     />
@@ -10,9 +10,9 @@
 </section-container>
 
 <ng-template #navigationBack>
-  <div class="col-span-1 flex items-center gap-3 relative pl-13">
+  <div class="col-span-5 1100:col-span-1 flex items-center gap-3 relative pl-13">
     <div
-      class="w-11 aspect-square grid place-content-center rounded-full custom-shadow cursor-pointer bg-white"
+      class="absolute left-0 w-11 aspect-square grid place-content-center rounded-full custom-shadow cursor-pointer bg-white"
       (click)="back()"
     >
       <icon name="arrow-back" size="24"/>
@@ -23,7 +23,7 @@
 </ng-template>
 
 <ng-template #blogInfo>
-  <div class="col-span-3 flex flex-col gap-4 800:gap-5 1200:gap-7">
+  <div class="col-span-5 1100:col-span-3 flex flex-col gap-3 800:gap-4 1200:gap-5 pb-20">
     @if (blog()) {
       <div class="font-thin">
         <a class="text-[#474B56]" routerLink="/blogs">Blog va yangiliklar</a> /
