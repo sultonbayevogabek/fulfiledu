@@ -5,6 +5,7 @@ import { CustomButtonComponent } from '@shared/components/custom-button/custom-b
 import { NgTemplateOutlet } from '@angular/common';
 import { VacanciesService } from './vacancies.service';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'vacancies',
@@ -14,6 +15,7 @@ import { SkeletonComponent } from '@shared/components/skeleton/skeleton.componen
     CustomButtonComponent,
     NgTemplateOutlet,
     SkeletonComponent,
+    RouterLink
   ],
   templateUrl: './vacancies.component.html',
   standalone: true

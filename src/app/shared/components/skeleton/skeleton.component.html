@@ -17,6 +17,12 @@
         *ngTemplateOutlet="mediaSkeleton;"
       />
     }
+
+    @if (type() === 'vacancies') {
+      <ng-container
+        *ngTemplateOutlet="vacanciesSkeleton;"
+      />
+    }
   }
 </div>
 
@@ -48,5 +54,10 @@
 
 <ng-template #mediaSkeleton>
   <div class="aspect-[408/299] common-radius overflow-hidden bg-gray-200 animate-pulse">
+  </div>
+</ng-template>
+
+<ng-template #vacanciesSkeleton>
+  <div class="aspect-[412/202] common-radius overflow-hidden bg-gray-200 animate-pulse">
   </div>
 </ng-template>
