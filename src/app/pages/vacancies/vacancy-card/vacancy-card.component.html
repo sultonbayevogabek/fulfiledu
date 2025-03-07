@@ -15,7 +15,7 @@
   </div>
 
   <custom-button
-    routerLink="/vacancies/{{ vacancy().title| slugify: index() }}"
+    routerLink="/vacancies/{{ vacancy().id }}"
     classes="w-full {{ bgColor() === 'white' ? 'border border-[#DCDFE7]': '' }}"
     text="Batafsil ko'rish"
     [type]="'white'"

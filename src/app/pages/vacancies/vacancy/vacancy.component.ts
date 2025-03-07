@@ -38,11 +38,9 @@ export class VacancyComponent implements OnInit {
 
   async ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
-      let vacancyIndex = 0;
       if (params && params['vacancyId']) {
-        vacancyIndex = +params['vacancyId'].split('-').reverse()[0] || 0;
+        await this.getVacancy(params['vacancyId']);
       }
-      await this.getVacancy(vacancyIndex);
     });
   }
 
@@ -50,18 +48,18 @@ export class VacancyComponent implements OnInit {
     this.location.back();
   }
 
-  async getVacancy(index: number) {
-    const vacancy = await this.vacanciesService.getVacancy(index);
+  async getVacancy(vacancyId: string) {
+    const vacancy = await this.vacanciesService.getVacancy(vacancyId);
     this.vacancy.set({
       ...vacancy,
       offersList: vacancy.offers.split('||'),
       requirementsList: vacancy.requirements.split('||')
     });
-    this.getAnotherVacancies(index);
+    this.getAnotherVacancies(vacancyId);
   }
 
-  getAnotherVacancies(index: number) {
-    const anotherVacancies = this.vacanciesService.getAnotherVacancies(index);
+  getAnotherVacancies(vacancyId: string) {
+    const anotherVacancies = this.vacanciesService.getAnotherVacancies(vacancyId);
     this.anotherVacancies.set(anotherVacancies);
   }
 }

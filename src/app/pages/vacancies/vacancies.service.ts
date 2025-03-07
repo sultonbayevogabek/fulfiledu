@@ -7,36 +7,47 @@ import { IVacancy } from './vacancy.interface';
 })
 
 export class VacanciesService {
-  vacancies = signal<IVacancy[]>([])
+  vacancies = signal<IVacancy[]>([]);
 
   private sheetsService = inject(SheetsService);
 
   async getVacanciesList() {
-    const vacancies = await this.sheetsService.getData<IVacancy>('vacancies');
+    let vacancies = await this.sheetsService.getData<IVacancy>('vacancies');
+    vacancies = vacancies.map(v => {
+      return {
+        id: this.generateUUID(),
+        ...v,
+      }
+    })
     this.vacancies.set(vacancies);
+    console.log(vacancies);
   }
 
-  async getVacancy(index: number) {
+  async getVacancy(vacancyId: string) {
     if (!this.vacancies().length) {
       await this.getVacanciesList();
     }
 
-    if (index > this.vacancies().length - 1) {
-      return this.vacancies()[0];
-    }
-
-    return this.vacancies()[index];
+    return this.vacancies().find(v => v.id === vacancyId);
   }
 
-  getAnotherVacancies(index: number) {
+  getAnotherVacancies(id: string) {
     const result: IVacancy[] = [];
 
-    this.vacancies().forEach((vacancy, i) => {
-      if (index !== i && result.length < 3) {
+    this.vacancies().forEach((vacancy) => {
+      if (id !== vacancy.id && result.length < 3) {
         result.push(vacancy)
       }
     })
 
     return result;
+  }
+
+  generateUUID(): string {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+      const r = (Math.random() * 16) | 0;
+      const v = c === 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
   }
 }

@@ -1,4 +1,5 @@
 export interface IVacancy {
+  id: string;
   title: string;
   salary: string;
   description: string;

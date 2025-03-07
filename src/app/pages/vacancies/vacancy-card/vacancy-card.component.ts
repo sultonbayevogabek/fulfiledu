@@ -2,7 +2,6 @@ import { Component, input } from '@angular/core';
 import { IVacancy } from '../vacancy.interface';
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 import { RouterLink } from '@angular/router';
-import { SlugifyPipe } from '@shared/pipes/slugify.pipe';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -10,7 +9,6 @@ import { NgClass } from '@angular/common';
   imports: [
     CustomButtonComponent,
     RouterLink,
-    SlugifyPipe,
     NgClass
   ],
   templateUrl: './vacancy-card.component.html',
@@ -18,5 +16,4 @@ import { NgClass } from '@angular/common';
 export class VacancyCardComponent {
   bgColor = input<'white' | 'gray'>('gray');
   vacancy = input<IVacancy>(null);
-  index = input<number>(0);
 }
