@@ -6,7 +6,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { VacanciesService } from './vacancies.service';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { RouterLink } from '@angular/router';
-import { SlugifyPipe } from '@shared/pipes/slugify.pipe';
+import { VacancyCardComponent } from './vacancy-card/vacancy-card.component';
 
 @Component({
   selector: 'vacancies',
@@ -17,7 +17,7 @@ import { SlugifyPipe } from '@shared/pipes/slugify.pipe';
     NgTemplateOutlet,
     SkeletonComponent,
     RouterLink,
-    SlugifyPipe
+    VacancyCardComponent
   ],
   templateUrl: './vacancies.component.html',
   standalone: true

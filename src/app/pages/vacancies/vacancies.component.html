@@ -38,29 +38,10 @@
 <ng-template #blogsTemplate>
   <div class="grid grid-cols-1 700:grid-cols-2 900:grid-cols-3 1400:grid-cols-4 common-gap">
     @for (vacancy of vacancies(); let i = $index; track i) {
-      <ng-container
-        *ngTemplateOutlet="vacancyCard; context: { $implicit: { vacancy, i } }"
+      <vacancy-card
+        [vacancy]="vacancy"
+        [index]="i"
       />
     }
-  </div>
-</ng-template>
-
-<ng-template #vacancyCard let-item>
-  <div class="flex flex-col gap-12 common-radius bg-[#F6F7F9] p-4 800:p-5 1200:p-6">
-    <div class="flex flex-col gap-4 leading-[1]">
-      <div class="text-[16px] 1200:text-[18px]">{{ item.vacancy.title }}</div>
-      <div>
-        <span class="text-[16px] 800:text-[18px] 1200:text-[20px]">{{ item.vacancy.salary }}</span>
-        <span class="text-[16px] 1200:text-[18px] text-[#8D929F]"> so'm</span>
-      </div>
-    </div>
-
-
-    <custom-button
-      routerLink="/vacancies/{{ item.vacancy.title| slugify: item.i }}"
-      classes="w-full"
-      text="Batafsil ko'rish"
-      type="white"
-    />
   </div>
 </ng-template>

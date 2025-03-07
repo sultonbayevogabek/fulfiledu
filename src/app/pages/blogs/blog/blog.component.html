@@ -1,11 +1,15 @@
 <section-container class="flex-grow" bgColor="gray">
   <div class="wrapper grid grid-cols-5 items-start gap-5">
-    <ng-container
-      *ngTemplateOutlet="navigationBack"
-    />
-    <ng-container
-      *ngTemplateOutlet="blogInfo"
-    />
+    @if (blog()) {
+      <ng-container
+        *ngTemplateOutlet="navigationBack"
+      />
+      <ng-container
+        *ngTemplateOutlet="blogInfo"
+      />
+    } @else {
+      <loader class="col-span-5" />
+    }
   </div>
 </section-container>
 

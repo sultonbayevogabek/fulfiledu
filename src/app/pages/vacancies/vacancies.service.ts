@@ -27,4 +27,16 @@ export class VacanciesService {
 
     return this.vacancies()[index];
   }
+
+  getAnotherVacancies(index: number) {
+    const result: IVacancy[] = [];
+
+    this.vacancies().forEach((vacancy, i) => {
+      if (index !== i && result.length < 3) {
+        result.push(vacancy)
+      }
+    })
+
+    return result;
+  }
 }

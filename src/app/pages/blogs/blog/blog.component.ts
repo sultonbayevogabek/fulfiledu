@@ -6,6 +6,7 @@ import { IBlog } from '../blogs.interface';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BlogsService } from '../blogs.service';
 import { ImageComponent } from '@shared/components/image/image.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 
 @Component({
   selector: 'blog',
@@ -14,7 +15,8 @@ import { ImageComponent } from '@shared/components/image/image.component';
     IconComponent,
     NgTemplateOutlet,
     RouterLink,
-    ImageComponent
+    ImageComponent,
+    LoaderComponent
   ],
   templateUrl: './blog.component.html',
   host: {

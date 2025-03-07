@@ -6,6 +6,8 @@ import { IVacancy } from '../vacancy.interface';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { VacanciesService } from '../vacancies.service';
 import { ImageComponent } from '@shared/components/image/image.component';
+import { VacancyCardComponent } from '../vacancy-card/vacancy-card.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 
 @Component({
   selector: 'vacancy',
@@ -14,7 +16,9 @@ import { ImageComponent } from '@shared/components/image/image.component';
     IconComponent,
     NgTemplateOutlet,
     RouterLink,
-    ImageComponent
+    ImageComponent,
+    VacancyCardComponent,
+    LoaderComponent
   ],
   templateUrl: './vacancy.component.html',
   host: {
@@ -24,13 +28,16 @@ import { ImageComponent } from '@shared/components/image/image.component';
 
 export class VacancyComponent implements OnInit {
   vacancy = signal<IVacancy>(null);
+  anotherVacancies = signal<IVacancy[]>([]);
 
   private location = inject(Location);
   private activatedRoute = inject(ActivatedRoute);
   private vacanciesService = inject(VacanciesService);
 
   async ngOnInit() {
-    await this.getVacancy();
+    this.activatedRoute.params.subscribe(params => {
+
+    })
   }
 
   back() {
@@ -50,5 +57,11 @@ export class VacancyComponent implements OnInit {
       offersList: vacancy.offers.split('||'),
       requirementsList: vacancy.requirements.split('||'),
     });
+    this.getAnotherVacancies(vacancyIndex);
+  }
+
+  getAnotherVacancies(index: number) {
+    const anotherVacancies = this.vacanciesService.getAnotherVacancies(index);
+    this.anotherVacancies.set(anotherVacancies);
   }
 }

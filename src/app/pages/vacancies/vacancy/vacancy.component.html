@@ -1,16 +1,25 @@
 <section-container class="flex-grow" bgColor="gray">
-  <div class="wrapper grid grid-cols-9 items-start gap-5">
-    <ng-container
-      *ngTemplateOutlet="navigationBack"
-    />
-    <ng-container
-      *ngTemplateOutlet="vacancyInfo"
-    />
+  <div class="wrapper grid grid-cols-10 items-start gap-6">
+    @if (vacancy()) {
+      <ng-container
+        *ngTemplateOutlet="navigationBack"
+      />
+      <ng-container
+        *ngTemplateOutlet="vacancyInfo"
+      />
+      <ng-container
+        *ngTemplateOutlet="anotherVacanciesTemplate"
+      />
+    } @else {
+      <loader
+        class="col-span-10"
+      />
+    }
   </div>
 </section-container>
 
 <ng-template #navigationBack>
-  <div class="col-span-1 1100:col-span-2 flex items-center gap-3 relative pl-13">
+  <div class="col-span-2 flex items-center gap-3 relative pl-13">
     <div
       class="absolute left-0 w-11 aspect-square grid place-content-center rounded-full custom-shadow cursor-pointer bg-white"
       (click)="back()"
@@ -23,7 +32,7 @@
 </ng-template>
 
 <ng-template #vacancyInfo>
-  <div class="col-span-5 1100:col-span-4 flex flex-col gap-6 pb-20">
+  <div class="col-span-5 flex flex-col gap-6 pb-20">
     @if (vacancy()) {
       <div class="font-thin">
         <a class="text-[#474B56]" routerLink="/vacancies">Vakansiyalar</a> /
@@ -48,6 +57,18 @@
         *ngTemplateOutlet="checkList; context: {
           $implicit: { title: 'Takliflar', options: vacancy().offersList }
         }"
+      />
+    }
+  </div>
+</ng-template>
+
+<ng-template #anotherVacanciesTemplate>
+  <div class="col-span-3 flex flex-col common-gap">
+    @for (another of anotherVacancies(); let i = $index; track i) {
+      <vacancy-card
+        [vacancy]="another"
+        [index]="i"
+        [bgColor]="'white'"
       />
     }
   </div>
