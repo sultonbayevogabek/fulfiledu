@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs';
 })
 
 export class SheetsService {
-  SHEET_ID = '1SRSwFILPcjdm9tDT0WocO7cfHHnrlwsHf64iRnmS9UA';
+  private SHEET_ID = '1SRSwFILPcjdm9tDT0WocO7cfHHnrlwsHf64iRnmS9UA';
 
   private http = inject(HttpClient);
 
@@ -16,26 +16,23 @@ export class SheetsService {
       this.http.get(this.sheetUrl(sheetName), { responseType: 'text' }),
     )
 
-    console.log('Response: ', response);
-
     return this.csvToArray<T>(response);
   }
 
-  sheetName(sheetName: string) {
+  private sheetName(sheetName: string) {
     return encodeURIComponent(sheetName);
   }
 
-  sheetUrl(sheetName: string) {
+  private sheetUrl(sheetName: string) {
     return `https://docs.google.com/spreadsheets/d/${ this.SHEET_ID }/gviz/tq?tqx=out:csv&sheet=${ this.sheetName(sheetName) }`;
   }
 
-  csvSplit(row: string) {
+  private csvSplit(row: string) {
     return row.split(',').map((val) => val.substring(1, val.length - 1));
   }
 
-  csvToArray<T>(csv: string): T[] {
+  private csvToArray<T>(csv: string): T[] {
     const csvRows = csv.split('\n');
-    console.log(csvRows);
     const propertyNames = this.csvSplit(csvRows[0]);
     let result: T[] = [];
     for (let i = 1, max = csvRows.length; i < max; i++) {
@@ -48,11 +45,6 @@ export class SheetsService {
       result.push(object);
     }
     return result;
-  }
-
-  convertDriveLink(driveLink: string): string {
-    const match = driveLink.match(/\/d\/([a-zA-Z0-9_-]+)\//);
-    return match ? `https://lh3.googleusercontent.com/d/${match[1]}` : "Invalid link";
   }
 }
 

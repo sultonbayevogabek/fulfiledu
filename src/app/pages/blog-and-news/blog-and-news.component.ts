@@ -17,7 +17,6 @@ import { SkeletonComponent } from '@shared/components/skeleton/skeleton.componen
     CustomButtonComponent,
     NgTemplateOutlet,
     ImageComponent,
-    LoaderComponent,
     SkeletonComponent
   ],
   templateUrl: './blog-and-news.component.html',

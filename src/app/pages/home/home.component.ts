@@ -3,7 +3,6 @@ import { IntroComponent } from '../../core/intro/intro.component';
 import { HistoryComponent } from './history/history.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TeamComponent } from './team/team.component';
-import { LoaderComponent } from '@shared/components/loader/loader.component';
 import { BlogAndNewsComponent } from '../blog-and-news/blog-and-news.component';
 import { MeetUsComponent } from './meet-us/meet-us.component';
 
@@ -14,7 +13,6 @@ import { MeetUsComponent } from './meet-us/meet-us.component';
     HistoryComponent,
     ProjectsComponent,
     TeamComponent,
-    LoaderComponent,
     BlogAndNewsComponent,
     MeetUsComponent
   ],
