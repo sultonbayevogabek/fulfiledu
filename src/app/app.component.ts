@@ -13,7 +13,9 @@ import { FooterComponent } from './core/footer/footer.component';
     FooterComponent
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  host: {
+    class: 'flex flex-col min-h-screen'
+  }
 })
 export class AppComponent {
   title = 'fulfiledu';

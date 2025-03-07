@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HistoryComponent } from './history/history.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TeamComponent } from './team/team.component';
-import { BlogAndNewsComponent } from '../blog-and-news/blog-and-news.component';
+import { BlogsComponent } from '../blogs/blogs.component';
 import { MeetUsComponent } from './meet-us/meet-us.component';
 import { VacanciesComponent } from '../vacancies/vacancies.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -13,7 +13,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     HistoryComponent,
     ProjectsComponent,
     TeamComponent,
-    BlogAndNewsComponent,
+    BlogsComponent,
     MeetUsComponent,
     VacanciesComponent,
     ContactUsComponent

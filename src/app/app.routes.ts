@@ -9,11 +9,8 @@ export const routes: Routes = [
     data: { title: 'Maqsadimiz, ilm orqali insonlar hayotini o\'zgartirish!' }
   },
   {
-    path: 'blog',
-    loadComponent: () => {
-      return import('./pages/blog-and-news/blog-and-news.component').then(c => c.BlogAndNewsComponent);
-    },
-    data: { title: 'Blog va yangiliklar' }
+    path: 'blogs',
+    loadChildren: () => import('./pages/blogs/blogs.routes').then(r => r.blogsRoutes)
   },
   {
     path: 'media',

@@ -5,7 +5,6 @@ import { firstValueFrom } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
 export class SheetsService {
   private SHEET_ID = '1SRSwFILPcjdm9tDT0WocO7cfHHnrlwsHf64iRnmS9UA';
 
@@ -13,8 +12,8 @@ export class SheetsService {
 
   async getData<T>(sheetName: string): Promise<T[]> {
     const response = await firstValueFrom(
-      this.http.get(this.sheetUrl(sheetName), { responseType: 'text' }),
-    )
+      this.http.get(this.sheetUrl(sheetName), { responseType: 'text' })
+    );
 
     return this.csvToArray<T>(response);
   }
@@ -28,7 +27,8 @@ export class SheetsService {
   }
 
   private csvSplit(row: string) {
-    return row.split(',').map((val) => val.substring(1, val.length - 1));
+    const regex = /(?:,)(?=(?:(?:[^"]*"){2})*[^"]*$)/g;
+    return row.split(regex).map((val) => val.replace(/^"|"$/g, '').trim());
   }
 
   private csvToArray<T>(csv: string): T[] {
@@ -47,4 +47,3 @@ export class SheetsService {
     return result;
   }
 }
-

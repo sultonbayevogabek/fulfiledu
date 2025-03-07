@@ -5,7 +5,7 @@ export default [
   },
   {
     text: 'Blog',
-    link: '/blog'
+    link: '/blogs'
   },
   {
     text: 'Mediya',

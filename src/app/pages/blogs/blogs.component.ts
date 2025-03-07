@@ -7,9 +7,10 @@ import { ImageComponent } from '@shared/components/image/image.component';
 import { BlogsService } from './blogs.service';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { RouterLink } from '@angular/router';
+import { SlugifyPipe } from '@shared/pipes/slugify.pipe';
 
 @Component({
-  selector: 'blog-and-news',
+  selector: 'blogs',
   imports: [
     SectionComponent,
     SectionHeadingComponent,
@@ -17,13 +18,14 @@ import { RouterLink } from '@angular/router';
     NgTemplateOutlet,
     ImageComponent,
     SkeletonComponent,
-    RouterLink
+    RouterLink,
+    SlugifyPipe
   ],
-  templateUrl: './blog-and-news.component.html',
+  templateUrl: './blogs.component.html',
   standalone: true
 })
 
-export class BlogAndNewsComponent implements OnInit {
+export class BlogsComponent implements OnInit {
   page = input('blog');
   blogs = computed(() => {
     if (this.page() === 'blog') {

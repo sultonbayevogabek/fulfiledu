@@ -18,3 +18,8 @@ body {
 .common-radius {
   @apply rounded-[6px] 800:rounded-[8px] 1200:rounded-[12px];
 }
+
+.common-shadow {
+  box-shadow: 0 0 18px 0 #00000014;
+}
+
