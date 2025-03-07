@@ -1,5 +1,6 @@
-import { Component, computed, HostBinding, input } from '@angular/core';
+import { Component, HostBinding, inject, OnInit, signal } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
+import { ActivationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'intro',
@@ -9,10 +10,32 @@ import { HeaderComponent } from '../header/header.component';
   standalone: true,
   templateUrl: './intro.component.html',
   host: {
-    'class': 'block bg-black bg-[url(/images/intro/background.jpg)] bg-center bg-cover'
+    'class': 'block bg-[#00393B] bg-center bg-cover'
   }
 })
 
-export class IntroComponent {
-  heading = input<string>('Maqsadimiz, ilm orqali insonlar hayotini o\'zgartirish!');
+export class IntroComponent implements OnInit {
+  @HostBinding('style.backgroundImage') get background() {
+    return this.heading() ? 'url(/images/intro/background.jpg)' : 'none';
+  }
+
+  heading = signal<string>(null);
+
+  private router = inject(Router);
+
+  ngOnInit(): void {
+    this.setHeading();
+  }
+
+  setHeading() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof ActivationStart) {
+        if (event.snapshot.data && event.snapshot.data['title']) {
+          this.heading.set(event.snapshot.data['title']);
+          return;
+        }
+        this.heading.set(null);
+      }
+    });
+  }
 }

@@ -6,7 +6,6 @@ import { NgTemplateOutlet } from '@angular/common';
 import { ImageComponent } from '@shared/components/image/image.component';
 import { BlogsService } from './blogs.service';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { IntroComponent } from '../../core/intro/intro.component';
 
 @Component({
   selector: 'blog-and-news',
@@ -17,7 +16,6 @@ import { IntroComponent } from '../../core/intro/intro.component';
     NgTemplateOutlet,
     ImageComponent,
     SkeletonComponent,
-    IntroComponent
   ],
   templateUrl: './blog-and-news.component.html',
   standalone: true

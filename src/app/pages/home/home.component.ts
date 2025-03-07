@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IntroComponent } from '../../core/intro/intro.component';
 import { HistoryComponent } from './history/history.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { TeamComponent } from './team/team.component';
@@ -9,7 +8,6 @@ import { MeetUsComponent } from './meet-us/meet-us.component';
 @Component({
   selector: 'app-home',
   imports: [
-    IntroComponent,
     HistoryComponent,
     ProjectsComponent,
     TeamComponent,
@@ -21,5 +19,4 @@ import { MeetUsComponent } from './meet-us/meet-us.component';
 })
 
 export class HomeComponent {
-
 }
