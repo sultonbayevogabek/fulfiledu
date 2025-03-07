@@ -4,6 +4,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { TeamComponent } from './team/team.component';
 import { BlogAndNewsComponent } from '../blog-and-news/blog-and-news.component';
 import { MeetUsComponent } from './meet-us/meet-us.component';
+import { VacanciesComponent } from '../vacancies/vacancies.component';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ import { MeetUsComponent } from './meet-us/meet-us.component';
     ProjectsComponent,
     TeamComponent,
     BlogAndNewsComponent,
-    MeetUsComponent
+    MeetUsComponent,
+    VacanciesComponent
   ],
   templateUrl: './home.component.html',
   standalone: true

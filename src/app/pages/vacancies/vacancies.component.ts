@@ -3,42 +3,38 @@ import { SectionComponent } from '@shared/components/section/section.component';
 import { SectionHeadingComponent } from '@shared/components/section-heading/section-heading.component';
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 import { NgTemplateOutlet } from '@angular/common';
-import { ImageComponent } from '@shared/components/image/image.component';
-import { BlogsService } from './blogs.service';
+import { VacanciesService } from './vacancies.service';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'blog-and-news',
+  selector: 'vacancies',
   imports: [
     SectionComponent,
     SectionHeadingComponent,
     CustomButtonComponent,
     NgTemplateOutlet,
-    ImageComponent,
     SkeletonComponent,
-    RouterLink
   ],
-  templateUrl: './blog-and-news.component.html',
+  templateUrl: './vacancies.component.html',
   standalone: true
 })
 
-export class BlogAndNewsComponent implements OnInit {
+export class VacanciesComponent implements OnInit {
   page = input('blog');
-  blogs = computed(() => {
+  vacancies = computed(() => {
     if (this.page() === 'blog') {
-      return this.blogsService.blogs();
+      return this.vacanciesService.vacancies();
     }
-    return this.blogsService.blogs().slice(0, 4);
+    return this.vacanciesService.vacancies().slice(0, 4);
   });
 
-  private blogsService = inject(BlogsService);
+  private vacanciesService = inject(VacanciesService);
 
   async ngOnInit() {
-    await this.getBlogsList();
+    await this.getVacanciesList();
   }
 
-  async getBlogsList() {
-    await this.blogsService.getBlogsList();
+  async getVacanciesList() {
+    await this.vacanciesService.getVacanciesList();
   }
 }
