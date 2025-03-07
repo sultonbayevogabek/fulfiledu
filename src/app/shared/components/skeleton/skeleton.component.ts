@@ -12,6 +12,8 @@ import { ImageComponent } from '@shared/components/image/image.component';
 
 export class SkeletonComponent {
   count = input<number>(4);
-  type = input.required<'members' | 'blog' | 'vacancies' | 'meet-us'>();
+  type = input.required<
+    'members' | 'blog' | 'vacancies' | 'meet-us' | 'media'
+  >();
   readonly Array = Array;
 }

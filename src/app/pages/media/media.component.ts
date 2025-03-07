@@ -1,15 +1,15 @@
-import { Component, computed, inject, input, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { SectionComponent } from '@shared/components/section/section.component';
 import { SectionHeadingComponent } from '@shared/components/section-heading/section-heading.component';
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 import { NgTemplateOutlet } from '@angular/common';
 import { ImageComponent } from '@shared/components/image/image.component';
-import { BlogsService } from './blogs.service';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { IntroComponent } from '../../core/intro/intro.component';
+import { SheetsService } from '@shared/services/sheets.service';
 
 @Component({
-  selector: 'blog-and-news',
+  selector: 'media',
   imports: [
     SectionComponent,
     SectionHeadingComponent,
@@ -19,26 +19,22 @@ import { IntroComponent } from '../../core/intro/intro.component';
     SkeletonComponent,
     IntroComponent
   ],
-  templateUrl: './blog-and-news.component.html',
+  templateUrl: './media.component.html',
   standalone: true
 })
 
-export class BlogAndNewsComponent implements OnInit {
-  page = input('blog');
-  blogs = computed(() => {
-    if (this.page() === 'blog') {
-      return this.blogsService.blogs();
-    }
-    return this.blogsService.blogs().slice(0, 4);
-  });
+export class MediaComponent implements OnInit {
+  images = signal<{ image: string }[]>([]);
 
-  private blogsService = inject(BlogsService);
+  private sheetsService = inject(SheetsService);
+
 
   async ngOnInit() {
-    await this.getBlogsList();
+    await this.getMediaImages();
   }
 
-  async getBlogsList() {
-    await this.blogsService.getBlogsList();
+  async getMediaImages() {
+    const response = await this.sheetsService.getData<{ image: string }>('media');
+    this.images.set(response);
   }
 }
