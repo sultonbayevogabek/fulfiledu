@@ -3,12 +3,14 @@ import { ImageComponent } from '@shared/components/image/image.component';
 import menu from '@shared/constants/menu';
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 import { MobileMenuService } from './mobile-menu.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'mobile-menu',
   imports: [
     ImageComponent,
-    CustomButtonComponent
+    CustomButtonComponent,
+    RouterLink
   ],
   templateUrl: './mobile-menu.component.html',
   standalone: true
