@@ -13,12 +13,6 @@ export class VacanciesService {
 
   async getVacanciesList() {
     let vacancies = await this.sheetsService.getData<IVacancy>('vacancies');
-    vacancies = vacancies.map(v => {
-      return {
-        id: this.generateUUID(),
-        ...v,
-      }
-    })
     this.vacancies.set(vacancies);
   }
 
@@ -26,6 +20,8 @@ export class VacanciesService {
     if (!this.vacancies().length) {
       await this.getVacanciesList();
     }
+
+    console.log(this.vacancies());
 
     return this.vacancies().find(v => v.id === vacancyId);
   }
