@@ -8,7 +8,7 @@ export default [
     link: '/blogs'
   },
   {
-    text: 'Mediya',
+    text: 'Media',
     link: '/media'
   },
   {
