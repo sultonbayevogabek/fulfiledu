@@ -15,4 +15,11 @@ export class CustomButtonComponent {
   classes = input('');
   type = input<'white' | 'green'>('green');
   text = input.required<string>();
+  phone = input<string>(null);
+
+  onBtnClick() {
+    if (this.phone()) {
+      window.location.href = 'tel:' + this.phone();
+    }
+  }
 }

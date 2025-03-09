@@ -20,7 +20,6 @@ export class VacanciesService {
       }
     })
     this.vacancies.set(vacancies);
-    console.log(vacancies);
   }
 
   async getVacancy(vacancyId: string) {
