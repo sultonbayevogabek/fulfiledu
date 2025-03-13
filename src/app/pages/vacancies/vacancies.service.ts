@@ -21,8 +21,6 @@ export class VacanciesService {
       await this.getVacanciesList();
     }
 
-    console.log(this.vacancies());
-
     return this.vacancies().find(v => v.id === vacancyId);
   }
 
