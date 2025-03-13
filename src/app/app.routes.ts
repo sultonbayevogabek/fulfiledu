@@ -1,11 +1,10 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => {
-      return import('./pages/home/home.component').then(c => c.HomeComponent);
-    },
+    component: HomeComponent,
     data: { title: 'Maqsadimiz, ilm orqali insonlar hayotini o\'zgartirish!' }
   },
   {
