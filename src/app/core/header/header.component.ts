@@ -5,6 +5,7 @@ import { CustomButtonComponent } from '@shared/components/custom-button/custom-b
 import { IconComponent } from '@shared/components/icon/icon.component';
 import menu from '@shared/constants/menu';
 import { MobileMenuService } from '../mobile-menu/mobile-menu.service';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'site-header',
@@ -14,6 +15,7 @@ import { MobileMenuService } from '../mobile-menu/mobile-menu.service';
     CustomButtonComponent,
     IconComponent,
     IconComponent,
+    NgTemplateOutlet
   ],
   templateUrl: './header.component.html',
   standalone: true

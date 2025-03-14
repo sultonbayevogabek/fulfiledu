@@ -9,11 +9,14 @@
   <ul class="flex flex-col flex-grow shrink-[1] overflow-auto gap-4">
     @for (menuItem of menu; track menuItem.text) {
       <li
-        class="cursor-pointer leading-[1]"
-        [routerLink]="menuItem.link"
-        (click)="closeMenu()"
+        class="leading-[1]"
       >
-        {{ menuItem.text }}
+        <a
+          class="block w-full"
+          [routerLink]="menuItem.link"
+          (click)="closeMenu()">
+          {{ menuItem.text }}
+        </a>
       </li>
     }
   </ul>
